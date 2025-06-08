@@ -230,6 +230,8 @@ amana-meal/
 │   │   ├── components/
 │   │   │   │   ├── Header.jsx
 │   │   │   │   ├── QRCard.jsx
+│   │   │   │   ├── Footer.jsx
+│   │   │   │   ├── Button.jsx
 │   │   ├── pages/
 │   │   │   │   ├── Dashboard.jsx
 │   │   │   │   ├── AdminPanel.jsx
