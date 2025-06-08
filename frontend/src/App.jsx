@@ -12,7 +12,7 @@ import { AdminProvider } from './context/AdminContext';
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 text-gray-800 font-sans">
+    <div className="flex flex-col min-h-screen w-full bg-gray-50 text-gray-800 font-sans">
       {/* Header */}
       <header className="bg-teal-600 text-white p-4 sm:p-6 shadow-md">
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-center">
