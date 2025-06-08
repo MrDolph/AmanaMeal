@@ -9,7 +9,7 @@ export default function Footer() {
 
         <div className="flex space-x-6 mt-4 md:mt-0">
           <a
-            href="https://github.com/yourusername/amanameal"
+            href="https://github.com/MrDolph/amanameal"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white"
