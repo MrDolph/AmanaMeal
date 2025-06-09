@@ -19,6 +19,13 @@ export default function Login() {
   };
 
   return (
+    <>
+    <button
+          onClick={() => navigate('/')}
+          className="text-blue-600 italic font-bold m-4 absolute"
+        >
+          ← Back
+      </button>
     <div className="w-full min-h-screen flex items-center justify-center bg-auto bg-gradient-to-br from-blue-100 via-white to-blue-200 px-5 sm: sm:y-0 md:mx-auto md:my-0 md:py-0">
       <form
         onSubmit={handleSubmit}
@@ -61,5 +68,6 @@ export default function Login() {
         </p>
       </form>
     </div>
+    </>
   );
 }

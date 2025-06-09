@@ -83,9 +83,9 @@ export default function Generate() {
     <>
     <button
           onClick={() => navigate('/')}
-          className="text-blue-600 underline m-4"
+          className="text-blue-600 italic font-bold m-4"
         >
-          ← Back to Dashboard
+          ← Back
       </button>
     <div className="min-h-screen flex flex-col items-center justify-start bg-gray-50 p-6 pt-12">
       
