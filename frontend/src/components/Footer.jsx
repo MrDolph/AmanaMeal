@@ -3,11 +3,11 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-gray-300 py-6 mt-12">
+    <footer className="bg-gray-800 text-gray-300 py-2 mt-0">
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-        <p className="text-sm">&copy; {new Date().getFullYear()} AmanaMeal. All rights reserved.</p>
+        <p className="text-sm pt-2">&copy; {new Date().getFullYear()} AmanaMeal. All rights reserved.</p>
 
-        <div className="flex space-x-6 mt-4 md:mt-0">
+        <div className="flex space-x-6 mt-0 py-2 md:mt-0">
           <a
             href="https://github.com/MrDolph/amanameal"
             target="_blank"

@@ -21,7 +21,7 @@ function App() {
       </header>
 
       {/* Main content area */}
-      <main className="flex-grow p-4 sm:p-6 md:p-8">
+      <main className="w-full min-h-full flex-grow sm:p-6 sm:m-6 md:m-0 md:p-0">
         <AuthProvider>
           <AdminProvider>
             <Routes>
