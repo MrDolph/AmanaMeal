@@ -1,5 +1,6 @@
 // src/pages/Generate.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { QRCodeCanvas } from 'qrcode.react';
 import Button from '../components/Button';
 
@@ -17,7 +18,22 @@ export default function Generate() {
 
   const [error, setError] = useState('');
   const [qrData, setQrData] = useState(null);
+  const [qrSize, setQrSize] = useState(256);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const updateQrSize = () => {
+      const width = window.innerWidth;
+      if (width < 640) setQrSize(180);
+      else if (width < 768) setQrSize(220);
+      else setQrSize(256);
+    };
+
+    updateQrSize();
+    window.addEventListener('resize', updateQrSize);
+    return () => window.removeEventListener('resize', updateQrSize);
+  }, []);
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -62,14 +78,23 @@ export default function Generate() {
 
     setQrData(JSON.stringify(qrPayload));
   };
-
+   
   return (
+    <>
+    <button
+          onClick={() => navigate('/')}
+          className="text-blue-600 underline m-4"
+        >
+          ← Back to Dashboard
+      </button>
     <div className="min-h-screen flex flex-col items-center justify-start bg-gray-50 p-6 pt-12">
+      
       <h1 className="text-3xl font-bold mb-6 text-gray-800">Generate QR Code</h1>
 
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded shadow-md w-full max-w-md"
+        noValidate
       >
         <label className="block mb-2 font-semibold text-gray-700" htmlFor="membershipNumber">
           Membership Number <span className="text-red-500">*</span>
@@ -82,6 +107,7 @@ export default function Generate() {
           onChange={handleChange}
           className="w-full mb-4 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Enter membership number"
+          autoComplete="off"
           required
         />
 
@@ -96,6 +122,7 @@ export default function Generate() {
           onChange={handleChange}
           className="w-full mb-4 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Enter full name"
+          autoComplete="off"
           required
         />
 
@@ -141,21 +168,26 @@ export default function Generate() {
           </>
         )}
 
-        {error && <p className="text-red-600 mb-4">{error}</p>}
+        {error && 
+          (<p className="text-red-600 mb-4" aria-live="assertive">
+            {error}
+          </p>
+        )}
 
-        <Button type="submit" variant="primary" size="md">
+        <Button type="submit" variant="primary" size="md" disabled={!formData.membershipNumber.trim() || !formData.name.trim() || !formData.category}>
           Generate QR Code
         </Button>
       </form>
 
       {qrData && (
-        <div className="mt-8 bg-white p-6 rounded shadow-md text-center">
+        <div className="mt-8 bg-white p-6 rounded shadow-md text-center w-full max-w-md">
           <h2 className="text-xl font-semibold mb-4">Your QR Code</h2>
-          <QRCodeCanvas value={qrData} size={256} />
+          <QRCodeCanvas value={qrData} size={qrSize} />
           <p className="mt-4 break-words text-sm text-gray-700">{qrData}</p>
           {/* You can add a print button here if you want */}
         </div>
       )}
     </div>
+  </>
   );
 }

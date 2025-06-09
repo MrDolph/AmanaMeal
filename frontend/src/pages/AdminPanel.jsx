@@ -88,7 +88,7 @@ export default function Admin() {
               logout();
               navigate('/');
             }}
-            className="bg-red-600 text-white px-4 py-2 rounded shadow hover:bg-red-700"
+            className="bg-red-600 text-white px-4 py-2  mr-0 rounded shadow hover:bg-red-700 relative top-1 right-1"
           >
             Logout
           </button>

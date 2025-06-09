@@ -28,7 +28,7 @@ export default function Category() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded shadow">
+    <div className="max-w-4xl mx-auto mt-6 mb-6 p-6 bg-white rounded shadow">
       {/* Back Button */}
       <div className="mb-4">
         <button onClick={() => navigate(-1)} className="text-blue-600 underline">

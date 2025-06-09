@@ -9,6 +9,7 @@ import Generate from './pages/Generate';
 import Login from './pages/Login';
 import { AuthProvider } from './context/AuthContext';
 import { AdminProvider } from './context/AdminContext';
+import GoogleCalendar from './components/GoogleCalendar';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       {/* Header */}
       <header className="bg-teal-600 text-white p-4 sm:p-6 shadow-md">
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-center">
-          AmanaMeal Dashboard
+          Al-Amana Meal 
         </h1>
       </header>
 
@@ -36,9 +37,11 @@ function App() {
             </Routes>
           </AdminProvider>
         </AuthProvider>
+        
       </main>
-
+      
       {/* Footer */}
+      <GoogleCalendar />
       <Footer />
     </div>
   );
